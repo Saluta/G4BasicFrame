@@ -1,0 +1,13 @@
+# the initialization commands for test case.
+/control/verbose 0
+/run/verbose 1
+/process/verbose 0
+
+# set number of threads
+/run/numberOfThreads 6
+
+# Initialize kernel
+/run/initialize
+
+# Load General Particle Source Set
+/control/execute gps.mac
