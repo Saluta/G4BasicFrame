@@ -35,7 +35,7 @@ int main(int argc, char ** argv)
   // user Action
   runManager->SetUserInitialization(new ActionInitialization);
 
-  // need no visManager for visualization;
+  // need no visManager for visualization in this case;
   // UImanager to execute some initial commands
   G4UImanager * UImanager = G4UImanager::GetUIpointer();
   UImanager->ApplyCommand("/control/execute init.mac");
