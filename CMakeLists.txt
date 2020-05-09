@@ -18,15 +18,16 @@ add_executable(G4Try main.cc ${sources} ${headers})
 target_link_libraries(G4Try ${Geant4_LIBRARIES})
 
 # copy the macro command to executable dir
-configure_file(
-    ${PROJECT_SOURCE_DIR}/init.mac 
-    ${PROJECT_BINARY_DIR}/init.mac 
-    COPYONLY
-)
+set(G4TRY_SCRIPTS
+  init.mac
+  gps.mac
+  )
 
-configure_file(
-    ${PROJECT_SOURCE_DIR}/gps.mac 
-    ${PROJECT_BINARY_DIR}/gps.mac 
+foreach(_script ${G4TRY_SCRIPTS})
+  configure_file(
+    ${PROJECT_SOURCE_DIR}/${_script}
+    ${PROJECT_BINARY_DIR}/${_script}
     COPYONLY
-)
+    )
+endforeach()
 # with no vis and mac, this file can stop here.
