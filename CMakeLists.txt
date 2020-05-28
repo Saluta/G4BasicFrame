@@ -1,6 +1,6 @@
 # fundemetal set of project
 cmake_minimum_required(VERSION 2.6 FATAL_ERROR)
-project(G4Try)
+project(G4BasicFrame)
 
 #NEED NO VI AND UI UTILIZE
 find_package(Geant4 REQUIRED)
@@ -14,8 +14,8 @@ file(GLOB sources ${PROJECT_SOURCE_DIR}/src/*.cc)
 file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
 
 # add executable
-add_executable(G4Try main.cc ${sources} ${headers})
-target_link_libraries(G4Try ${Geant4_LIBRARIES})
+add_executable(G4BasicFrame main.cc ${sources} ${headers})
+target_link_libraries(G4BasicFrame ${Geant4_LIBRARIES})
 
 # copy the macro command to executable dir
 set(G4TRY_SCRIPTS
