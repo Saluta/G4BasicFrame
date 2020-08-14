@@ -1,4 +1,5 @@
 #include "G4UIExecutive.hh"
+#include "G4VisExecutive.hh"
 #include "G4VModularPhysicsList.hh"
 #include "G4UImanager.hh"
 
@@ -15,7 +16,11 @@
 int main(int argc, char ** argv)
 {
   // interaction, we need ui.
-  G4UIExecutive *ui = new G4UIExecutive(argc, argv);
+  G4UIExecutive *ui = 0;
+  if(argc==1)
+  {
+    ui = new G4UIExecutive(argc, argv);
+  }
 
   // set runManager
 #ifdef G4MULTITHREADED
@@ -35,15 +40,29 @@ int main(int argc, char ** argv)
   // user Action
   runManager->SetUserInitialization(new ActionInitialization);
 
-  // need no visManager for visualization in this case;
+  // VisManager for visualization in this case;
+  G4VisManager * visManager = new G4VisExecutive;
+  visManager->Initialize();
+  
   // UImanager to execute some initial commands
   G4UImanager * UImanager = G4UImanager::GetUIpointer();
-  UImanager->ApplyCommand("/control/execute init.mac");
-
-  // start the interaction between program and user
-  ui->SessionStart();
-
+  
+  if(!ui)
+  {
+    // batch
+    G4String cmd = "/control/execute ";
+    G4String fileName = argv[1];
+    UImanager->ApplyCommand(cmd+fileName);
+  }
+  else
+  {
+    // interactive mode
+    UImanager->ApplyCommand("/control/execute init.mac");
+    ui->SessionStart();
+    delete ui;
+  }
+  
   // do clear.
-  delete ui;
+  delete visManager;
   delete runManager;
 }
