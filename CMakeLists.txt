@@ -2,8 +2,13 @@
 cmake_minimum_required(VERSION 2.6 FATAL_ERROR)
 project(G4BasicFrame)
 
-#NEED NO VI AND UI UTILIZE
-find_package(Geant4 REQUIRED)
+#Set Option for ui vis on or off
+option(WITH_GEANT4_UIVIS "Build project with UI and VIS drivers" ON)
+if(WITH_GEANT4_UIVIS)
+  find_package(Geant4 REQUIRED ui_all vis_all)
+else()
+  find_package(Geant4 REQUIRED)
+endif()
 
 # include setup
 include(${Geant4_USE_FILE})
