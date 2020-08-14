@@ -23,14 +23,15 @@ add_executable(G4BasicFrame main.cc ${sources} ${headers})
 target_link_libraries(G4BasicFrame ${Geant4_LIBRARIES})
 
 # copy the macro command to executable dir
-set(G4TRY_SCRIPTS
+set(G4_SCRIPTS
   init.mac
   gps.mac
+  vis.mac
   )
 
-foreach(_script ${G4TRY_SCRIPTS})
+foreach(_script ${_SCRIPTS})
   configure_file(
-    ${PROJECT_SOURCE_DIR}/${_script}
+    ${PROJECT_SOURCE_DIR}/${G4_script}
     ${PROJECT_BINARY_DIR}/${_script}
     COPYONLY
     )
