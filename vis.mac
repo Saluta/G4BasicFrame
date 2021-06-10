@@ -18,6 +18,10 @@
 /vis/modeling/trajectories/drawByCharge-0/default/setDrawStepPts true
 /vis/modeling/trajectories/drawByCharge-0/default/setStepPtsSize 2
 
+# Axes, scale, etc.
+/vis/scene/add/scale   # Simple scale line
+/vis/scene/add/axes    # Simple axes: x=red, y=green, z=blue.
+
 # hold the draw at the end of event, do them all in a run.
 /vis/scene/endOfEventAction accumulate
 
