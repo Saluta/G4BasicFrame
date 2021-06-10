@@ -9,5 +9,8 @@
 # Initialize kernel
 /run/initialize
 
+# Load Setting of visualization
+/control/execute vis.mac
+
 # Load General Particle Source Set
 /control/execute gps.mac
