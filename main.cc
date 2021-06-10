@@ -16,7 +16,7 @@
 int main(int argc, char ** argv)
 {
   // interaction, we need ui.
-  G4UIExecutive *ui = 0;
+  G4UIExecutive *ui = nullptr;
   if(argc==1)
   {
     ui = new G4UIExecutive(argc, argv);
