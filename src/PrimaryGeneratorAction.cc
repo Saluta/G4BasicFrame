@@ -5,7 +5,7 @@
 
 PrimaryGeneratorAction::PrimaryGeneratorAction()
 : G4VUserPrimaryGeneratorAction(),
-  fGPS(0)
+  fGPS(nullptr)
 {
   fGPS = new G4GeneralParticleSource();
 }
