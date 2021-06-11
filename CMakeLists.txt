@@ -29,9 +29,9 @@ set(G4_SCRIPTS
   vis.mac
   )
 
-foreach(_script ${_SCRIPTS})
+foreach(_script ${G4_SCRIPTS})
   configure_file(
-    ${PROJECT_SOURCE_DIR}/${G4_script}
+    ${PROJECT_SOURCE_DIR}/${_script}
     ${PROJECT_BINARY_DIR}/${_script}
     COPYONLY
     )
