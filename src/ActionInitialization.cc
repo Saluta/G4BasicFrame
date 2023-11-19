@@ -15,7 +15,7 @@ ActionInitialization::~ActionInitialization()
 
 void ActionInitialization::BuildForMaster() const
 {
-  SetUserAction(new G4UserRunAction);
+  SetUserAction(new RunAction);
 }
 
 void ActionInitialization::Build() const
