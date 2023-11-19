@@ -1,5 +1,6 @@
 #include "RunAction.hh"
 
+#include "G4RunManager.hh"
 #include "G4Run.hh"
 
 RunAction::RunAction()
