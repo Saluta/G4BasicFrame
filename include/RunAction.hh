@@ -2,10 +2,6 @@
 #define RunAction_h 1
 
 #include "G4UserRunAction.hh"
-#include "G4ScoringManager.hh"
-#include "G4Accumulable.hh"
-
-#include "globals.hh"
 
 class G4Run;
 
