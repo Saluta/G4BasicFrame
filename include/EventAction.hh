@@ -2,7 +2,6 @@
 #define EventAction_h 1
 
 #include "G4UserEventAction.hh"
-#include "globals.hh"
 
 class G4Event;
 
@@ -14,11 +13,6 @@ public:
 
     virtual void BeginOfEventAction(const G4Event*);
     virtual void   EndOfEventAction(const G4Event*);
-
-    void AddEdep(G4double addE) {fEdep += addE;}
-
-private:
-    G4double fEdep;
 };
 
 #endif
